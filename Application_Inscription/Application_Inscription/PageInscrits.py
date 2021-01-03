@@ -9,10 +9,11 @@ def listeInscrit(fenetre,liste):
 	listeCan = Canvas(newFen, bg="#FF7800")
 	fontLabel = "arial 11 bold"
 
-	resultat = Label (contenu, text = "Liste des inscrits", font = fontLabel,fg="#FF7800",bg="white")
-	prenom = Label (contenu, text = "prénoms", font = fontLabel,fg="#FF7800",bg="white")
-	nom = Label (contenu, text = "noms", font = fontLabel,fg="#FF7800",bg="white")
-	status = Label (contenu, text = "Aucun inscrit pour le moment", font = "arial 9 bold",fg="#FF7800",bg="white")
+	resultat = Label (listeCan, text = "Liste des inscrits", font = fontLabel,fg="#FF7800",bg="white")
+	prenom = Label (listeCan, text = "prénoms", font = fontLabel,fg="white",bg="#FF7800")
+	nom = Label (listeCan, text = "noms", font = fontLabel,fg="white",bg="#FF7800")
+	photo = Label (listeCan, text = "photo", font = fontLabel,fg="white",bg="#FF7800")
+	status = Label (listeCan, text = "Aucun inscrits pour le moment", font = "arial 9 bold",fg="white",bg="#FF7800")
 
 	listeCan.grid(row=0,column=0)
 	resultat.grid(row=0,column=0, columnspan=3)
@@ -30,8 +31,8 @@ def listeInscrit(fenetre,liste):
 			photoLab.img = ImageTk.PhotoImage(img)
 			photoLab.configure(image=photoLab.img)
 
-			pre=Label(listenCan, text=p.prenom, font = fontLabel, fg="white", bg="#FF7800")
-			no=Label(listenCan, text=p.nom, font = fontLabel, fg="white", bg="#FF7800")
+			pre=Label(listeCan, text=p.prenom, font = fontLabel, fg="white", bg="#FF7800")
+			no=Label(listeCan, text=p.nom, font = fontLabel, fg="white", bg="#FF7800")
 
 			photoLab.grid(row = r,column = 1)
 			pre.grid(row = r,column = 2)
@@ -40,7 +41,7 @@ def listeInscrit(fenetre,liste):
 			listeCan.create_line(9,55,355,55,width = 1,fill="white")
 			r+=1
 
-			stuatus.configure(text="{} inscris pour le moment".format(len(liste)))
+			status.configure(text="{} inscrits pour le moment".format(len(liste)))
 			status.grid(row=r, column=0, columnspan = 3,pady=2)
 
 	newFen.mainloop()
